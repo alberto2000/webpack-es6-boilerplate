@@ -4,30 +4,30 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/index.js',
-  output: {
-  	path: __dirname,
-    filename: './dist/js/bundle.min.js'
-  },
+	entry: './src/js/index.js',
+	output: {
+		path: __dirname,
+		filename: './dist/js/bundle.min.js'
+	},
 	module: {
-	  loaders: [
-	    {
-	      test: /\.js$/,
-	      exclude: /(node_modules)/,
-	      loader: 'babel',
-	      query: {
-	        presets: ['es2015']
-	      }
-	    },
-		  {
-		    test: /\.css$/,
-		    loader: ExtractTextPlugin.extract(['css', 'postcss'])
-		  },
-		  {
-		    test: /\.scss$/,
-		    loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass'])
-		  }
-	  ]
+		loaders: [
+			{
+				test: /\.js$/,
+				exclude: /(node_modules)/,
+				loader: 'babel',
+				query: {
+					presets: ['es2015']
+				}
+			},
+			{
+				test: /\.css$/,
+				loader: ExtractTextPlugin.extract(['css', 'postcss'])
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass'])
+			}
+		]
 	},
 	postcss: function() {
 		return [autoprefixer];
