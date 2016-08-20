@@ -1,3 +1,5 @@
+var path = require('path');
+var autoprefixer = require('autoprefixer');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -6,7 +8,7 @@ module.exports = {
 		path: __dirname,
 		filename: './dist/js/bundle.js'
 	},
-	devtool: 'source-map',
+	devtool: '#eval-source-map',
 	module: {
 		loaders: [
 			{
@@ -19,13 +21,16 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loaders: ['style', 'css?sourceMap']
+				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap']
 			},
 			{
 				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
+				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap']
 			}
 		]
+	},
+	postcss: function() {
+		return [autoprefixer];
 	},
 	plugins: [
 		new CopyWebpackPlugin([

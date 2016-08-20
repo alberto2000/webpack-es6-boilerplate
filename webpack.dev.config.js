@@ -1,3 +1,4 @@
+var path = require('path');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var autoprefixer = require('autoprefixer');
@@ -8,7 +9,7 @@ module.exports = {
 		path: __dirname,
 		filename: './dist/js/bundle.js'
 	},
-	devtool: 'source-map',
+	devtool: '#eval-source-map',
 	module: {
 		loaders: [
 			{
