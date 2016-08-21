@@ -28,6 +28,9 @@ module.exports = {
 	vue: {
 		loaders: {
 			scss: 'style!css?sourceMap!sass?sourceMap'
+		},
+		autoprefixer: {
+			browsers: ['last 2 versions']
 		}
 	},
 	plugins: [

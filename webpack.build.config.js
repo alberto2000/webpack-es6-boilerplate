@@ -28,6 +28,9 @@ module.exports = {
 	vue: {
 		loaders: {
 			scss: ExtractTextPlugin.extract('css!sass')
+		},
+		autoprefixer: {
+			browsers: ['last 2 versions']
 		}
 	},
 	plugins: [
