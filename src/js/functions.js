@@ -1,9 +1,9 @@
 import $ from 'jquery'
 
 export const functions = {
-
 	initApp: () => {
-		console.log('init app!')
+		$(document).ready(() => {
+			console.log('init app!')
+		})
 	}
-
 }
