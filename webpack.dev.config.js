@@ -1,7 +1,6 @@
 var path = require('path');
 var DashboardPlugin = require('webpack-dashboard/plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
 	entry: './src/js/index.js',
@@ -21,17 +20,15 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.css$/,
-				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap']
-			},
-			{
-				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap']
+				test: /\.vue$/,
+				loader: 'vue'
 			}
 		]
 	},
-	postcss: function() {
-		return [autoprefixer];
+	vue: {
+		loaders: {
+			scss: 'style!css?sourceMap!sass?sourceMap'
+		}
 	},
 	plugins: [
 		new DashboardPlugin(),

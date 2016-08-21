@@ -1,6 +1,5 @@
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -21,17 +20,15 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.css$/,
-				loader: ExtractTextPlugin.extract(['css', 'postcss'])
-			},
-			{
-				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass'])
+				test: /\.vue$/,
+				loader: 'vue'
 			}
 		]
 	},
-	postcss: function() {
-		return [autoprefixer];
+	vue: {
+		loaders: {
+			scss: ExtractTextPlugin.extract('css!sass')
+		}
 	},
 	plugins: [
 		new ExtractTextPlugin('./dist/css/styles.css'),

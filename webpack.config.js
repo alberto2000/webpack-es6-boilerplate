@@ -1,5 +1,4 @@
 var path = require('path');
-var autoprefixer = require('autoprefixer');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -20,17 +19,15 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.css$/,
-				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap']
-			},
-			{
-				test: /\.scss$/,
-				loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap']
+				test: /\.vue$/,
+				loader: 'vue'
 			}
 		]
 	},
-	postcss: function() {
-		return [autoprefixer];
+	vue: {
+		loaders: {
+			scss: 'style!css?sourceMap!sass?sourceMap'
+		}
 	},
 	plugins: [
 		new CopyWebpackPlugin([

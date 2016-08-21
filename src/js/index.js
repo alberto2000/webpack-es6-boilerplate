@@ -1,6 +1,12 @@
+import Vue from 'vue'
+import App from './App.vue'
 import {functions} from './functions.js'
-import '../scss/main.scss'
+
+new Vue({
+  el: 'body',
+  components: {
+    app: App
+  }
+})
 
 functions.initApp()
-
-console.log('all good!')
