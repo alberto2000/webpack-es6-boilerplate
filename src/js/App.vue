@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 		<div class="container">
-			<h1>webpack-es6-boilerplate</h1>
+			<h1>webpack-es6-boilerplate!</h1>
 		</div>
   </div>
 </template>
@@ -30,7 +30,6 @@ export default {
 				font-style: italic;
 				font-size: 18px;
 				line-height: 24px;
-				letter-spacing: 0.025em;
 			}
 		}
 	}
